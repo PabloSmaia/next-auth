@@ -26,4 +26,5 @@ o obejetivo desse projeto foi fazer uma atenticação com GitHub, usando next/au
 * Abre uma aba no navegar e navegue para localhost:3000
 
 ## :keyboard: Resultado
-![projeto calculadora]
+![projeto next-auth](https://user-images.githubusercontent.com/101607033/197671195-28ad9418-8373-4a7b-a1b2-d5b1d6993bf5.png)
+
