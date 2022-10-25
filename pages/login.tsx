@@ -1,8 +1,27 @@
+import {getSession, signIn} from 'next-auth/react'
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context);
+
+    if(session){
+        return{
+            redirect: {
+                destination: "/",
+                permanent: false,
+            }
+        }
+    }
+    return {
+        props: {session},
+    }
+}
+
 function Login(){
     return(
         <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
   <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-    <h1 className="font-bold text-center text-2xl mb-5">PabloMaia </h1>  
+
+    <h1 className="font-bold text-center  text-base mb-5 "> <a className='text-1x1 text-blue-300 mr-2 text-2xl'>OPEN</a>The Door</h1>  
     <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
       <div className="px-5 py-7">
         <label className="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
@@ -21,7 +40,8 @@ function Login(){
                <ul className="flex justify-between -mx-2 mb-10">
                   <li className="px-4 w-full">
                      <a
-                        href="javascript:void(0)"
+                        type="button"
+                        onClick={() => signIn('gitHub')}
                         className="
                         flex
                         h-11
@@ -31,6 +51,7 @@ function Login(){
                         bg-[#4064AC]
                         hover:bg-opacity-90
                         "
+                        
                         >
                         <svg xmlns="http://www.w3.org/2000/svg" 
                         width="24" 
@@ -54,6 +75,7 @@ function Login(){
                         "
                         >
                         <svg
+                        
                            width="22"
                            height="16"
                            viewBox="0 0 22 16"
@@ -67,7 +89,7 @@ function Login(){
                         </svg>
                      </a>
                   </li>
-                  <li className="px-2 w-full">
+                  <li className="px-2 w-full mr-2">
                      <a
                         href="javascript:void(0)"
                         className="
@@ -97,17 +119,6 @@ function Login(){
                </ul>
       </div>
     </div>
-    <div className="py-5">
-        <div className="grid grid-cols-2 gap-1">
-          <div className="text-center sm:text-left whitespace-nowrap">
-            <button className="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 inline-block align-text-top">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-            </button>
-          </div>
-        </div>
-      </div>
   </div>
 </div>
     )
