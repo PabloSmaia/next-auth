@@ -4,7 +4,7 @@ Autenticação via Github
 ---
 ## Introdução
 
-o obejetivo desse projeto foi fazer uma atenticação com GitHub, usando next/auth e PlaneteScale 
+o objetivo desse projeto foi fazer uma autenticação com GitHub, usando next/auth e PlaneteScale 
 
 ### Nível
 
